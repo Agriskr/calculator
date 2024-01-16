@@ -1,43 +1,36 @@
 import { useState } from 'react'
-
 import './App.css'
+import Keyboard from './Keyboard'
+import Display from './Display';
+import keyData from './data';
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState(0);
+  const [output, setOutput] = useState('0');
+
+
+  const handleInput = (value) => {
+    console.log(value)
+    setInput(value);
+
+
+  };
 
   return (
     <>
-      <div>
+      <div className='container'>
+        <h1>FCC Calculator </h1>
+
+        <Display output={output} input={input} />
+
+        <Keyboard handleInput={handleInput} />
+
+        <p className='signature'>by AK</p>
 
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-      </div>
-
-
 
 
     </>
