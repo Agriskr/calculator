@@ -6,7 +6,7 @@ const Key = ({ id, value, handleInput }) => {
         <button
             id={id}
             value={value}
-            onClick={() => handleInput(value)}>
+            onClick={handleInput}>
             {value}
         </button>
     )

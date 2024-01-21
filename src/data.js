@@ -12,7 +12,7 @@ const keyData = [
     { id: "add", value: "+" },
     { id: "one", value: 1 },
     { id: "two", value: 2 },
-    { id: "tree", value: 3 },
+    { id: "three", value: 3 },
     { id: "equals", value: "=" },
     { id: "zero", value: 0 },
     { id: "decimal", value: "." },
