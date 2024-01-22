@@ -11,7 +11,8 @@ const Keyboard = ({ handleInput }) => {
                 <Key key={keyData.value}
                     id={keyData.id}
                     value={keyData.value}
-                    handleInput={handleInput} />
+                    handleInput={handleInput}
+                />
             ))}
 
         </div>
