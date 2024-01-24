@@ -26,7 +26,7 @@ function App() {
     const value = event.target.value;
 
     if (input === "0" && !solved) {
-      setInput(`${value}`)
+      setInput(value)
     } else {
       setInput(`${input}${value}`)
     }
@@ -74,11 +74,14 @@ function App() {
     if (solved) {
       setSolved(false)
     }
+    if (input === "0") {
+      setInput("0");
+    }
     if (isOperator(lastChar) || lastChar === ".") {
       setInput(input.replace(/.$/, `${value}`))
     }
     if (lastChar === "-" && value === "-") {
-      setInput(`${input}`)
+      setInput(input)
     }
     if (isOperator(lastChar) && lastChar !== "-" && value === "-") {
       setInput(`${input}${value}`)
@@ -92,7 +95,7 @@ function App() {
     let expression = input;
     expression = expression.replace(/[*\/+-]+$/, "");
     let result = eval(expression).toString();
-    setInput(result)
+    setInput(result);
     setOutput(expression + "=" + result);
     setSolved(true);
   }
