@@ -1,6 +1,6 @@
 import React from 'react'
 import Key from './Key.jsx'
-import keyData from './data.js'
+import keyData from './data.jsx'
 
 
 const Keyboard = ({ handleInput }) => {

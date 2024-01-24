@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Keyboard from './Keyboard'
 import Display from './Display';
@@ -10,7 +10,7 @@ function App() {
   const [solved, setSolved] = useState(false)
 
   const isOperator = (value) => {
-    return /[*\/+-]/.test(value)
+    return /[-+\/*]/.test(value)
   }
   const isNumber = (value) => {
     return /[0-9]/.test(value)
@@ -93,7 +93,7 @@ function App() {
 
   const handleEqual = () => {
     let expression = input;
-    expression = expression.replace(/[*\/+-]+$/, "");
+    expression = expression.replace(/[-=\/*]+$/, "");
     let result = eval(expression).toString();
     setInput(result);
     setOutput(expression + "=" + result);
