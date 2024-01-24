@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Keyboard from './Keyboard'
 import Display from './Display';
@@ -12,18 +12,27 @@ function App() {
   const isOperator = (value) => {
     return /[*\/+-]/.test(value)
   }
+  const isNumber = (value) => {
+    return /[0-9]/.test(value)
+  }
   const handleClear = () => {
     setInput("0");
     setOutput("");
+    setSolved(false);
+
   };
 
   const handleInput = (event) => {
-    const value = event.target.textContent;
+    const value = event.target.value;
 
-    if (input === "0") {
-      setInput(value)
+    if (input === "0" && !solved) {
+      setInput(`${value}`)
     } else {
       setInput(`${input}${value}`)
+    }
+    if (solved && isNumber(value)) {
+      setInput(value)
+      setSolved(false)
     }
     if (value === "AC") {
       handleClear()
@@ -62,9 +71,8 @@ function App() {
 
     let lastChar = input.charAt(input.length - 1);
     let secondLastChar = input.charAt(input.length - 2);
-
-    if (!isOperator(lastChar)) {
-      setInput(`${input}${value}`);
+    if (solved) {
+      setSolved(false)
     }
     if (isOperator(lastChar) || lastChar === ".") {
       setInput(input.replace(/.$/, `${value}`))
@@ -80,8 +88,6 @@ function App() {
     }
   }
 
-
-
   const handleEqual = () => {
     let expression = input;
     expression = expression.replace(/[*\/+-]+$/, "");
@@ -90,6 +96,7 @@ function App() {
     setOutput(expression + "=" + result);
     setSolved(true);
   }
+
 
   return (
     <>
