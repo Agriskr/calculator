@@ -2,9 +2,9 @@ import React from 'react'
 
 const Display = ({ input, output }) => {
     return (
-        <div className='display' id="display">
-            <div className='output'>{output}</div>
-            <div className='input'>{input}</div>
+        <div className='display' >
+            <div className='output' >{output}</div>
+            <div className='input' id="display">{input}</div>
         </div>
     )
 }
